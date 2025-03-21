@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Austine Iheji - Software Engineer</title>
+    <style>
+        :root {
+            --oxblood: #76000C;
+            --oxblood-light: #9E0010;
+            --cream: #F8F0E3;
+            --gold: #D4AF37;
+            --charcoal: #36454F;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--cream);
+            color: var(--charcoal);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background-color: var(--oxblood);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 10;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .tagline {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--gold);
+        }
+        
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3rem 1rem;
+            position: relative;
+        }
+        
+        .decorative-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(var(--gold) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.2;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .back-button {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background-color: var(--charcoal);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .back-button:hover {
+            background-color: var(--oxblood);
+        }
+        
+        .profile-container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-width: 1000px;
+            width: 100%;
+            z-index: 1;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        
+        .profile-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            background-color: var(--oxblood);
+            color: white;
+            position: relative;
+        }
+        
+        @media (min-width: 768px) {
+            .profile-header {
+                flex-direction: row;
+                gap: 2rem;
+            }
+        }
+        
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid var(--gold);
+            overflow: hidden;
+            background-color: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            flex-shrink: 0;
+        }
+        
+        .profile-header-info {
+            flex: 1;
+            text-align: center;
+        }
+        
+        @media (min-width: 768px) {
+            .profile-header-info {
+                text-align: left;
+            }
+        }
+        
+        .profile-header h2 {
+            color: white;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .profile-header p {
+            color: var(--cream);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-link {
+            background-color: var(--gold);
+            color: var(--oxblood);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .profile-content {
+            padding: 2rem;
+        }
+        
+        .section {
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            color: var(--oxblood);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 0.5rem;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+        
+        .skill-tag {
+            background-color: var(--oxblood-light);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .project-card {
+            background-color: var(--cream);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        
+        .project-image {
+            height: 160px;
+            background-color: var(--charcoal);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+        
+        .project-info {
+            padding: 1.2rem;
+        }
+        
+        .project-title {
+            color: var(--oxblood);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .project-tag {
+            background-color: var(--oxblood);
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+        
+        .experience-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .experience-title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .experience-company {
+            font-weight: bold;
+            color: var(--oxblood);
+        }
+        
+        .experience-period {
+            color: var(--charcoal);
+            font-style: italic;
+        }
+        
+        .experience-description ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .experience-description li {
+            margin-bottom: 0.3rem;
+        }
+        
+        .education-item {
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .contact-icon {
+            background-color: var(--oxblood);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        footer {
+            background-color: var(--charcoal);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--oxblood);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--oxblood-light);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Software Engineering Lab</h1>
+        <p class="tagline">Innovating the future, one line of code at a time</p>
+    </header>
+    
+    <main class="main-content">
+        <div class="decorative-pattern"></div>
+        <a href="index.html" class="back-button">← Back to Team</a>
+        
+        <div class="profile-container">
+            <div class="profile-header">
+                <div class="profile-image">👨‍💻</div>
+                <div class="profile-header-info">
+                    <h2>Austine Iheji</h2>
+                    <p>Senior Software Engineer</p>
+                    <p>Passionate about creating robust, scalable applications with a focus on user experience and clean code architecture.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">GH</a>
+                        <a href="#" class="social-link">X</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="profile-content">
+                <section class="section">
+                    <h3 class="section-title">About Me</h3>
+                    <p>With over 8 years of experience in software development, I specialize in building high-performance web applications and distributed systems. I enjoy solving complex problems and continuously learning new technologies to improve my craft.</p>
+                    <p>Outside of coding, I enjoy playing chess, hiking, and contributing to open-source projects that make a positive impact on the community.</p>
+                </section>
+                
+                <section class="section">
+                    <h3 class="section-title">Skills</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">GraphQL</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Microservices</span>
+                        <span class="skill-tag">System Design</span>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h3 class="section-title">Projects</h3>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-image">🌐</div>
+                            <div class="project-info">
+                                <h4 class="project-title">E-Commerce Platform</h4>
+                                <p>A scalable e-commerce solution with real-time inventory management and payment processing.</p>
+                                <div class="project-tags">
+                                    <span class="project-tag">React</span>
+                                    <span class="project-tag">Node.js</span>
+                                    <span class="project-tag">MongoDB</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-image">📊</div>
+                            <div class="project-info">
+                                <h4 class="project-title">Analytics Dashboard</h4>
+                                <p>Real-time analytics dashboard for monitoring business metrics with customizable reports.</p>
+                                <div class="project-tags">
+                                    <span class="project-tag">TypeScript</span>
+                                    <span class="project-tag">D3.js</span>
+                                    <span class="project-tag">AWS</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-image">🤖</div>
+                            <div class="project-info">
+                                <h4 class="project-title">AI Chatbot</h4>
+                                <p>Intelligent customer service chatbot with natural language processing capabilities.</p>
+                                <div class="project-tags">
+                                    <span class="project-tag">Python</span>
+                                    <span class="project-tag">NLP</span>
+                                    <span class="project-tag">TensorFlow</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h3 class="section-title">Experience</h3>
+                    <div class="experience-item">
+                        <div class="experience-title">
+                            <span class="experience-company">TechInnovate Solutions</span>
+                            <span class="experience-period">2022 - Present</span>
+                        </div>
+                        <div class="experience-role">Senior Software Engineer</div>
+                        <div class="experience-description">
+                            <ul>
+                                <li>Lead a team of 6 engineers in developing a microservices architecture</li>
+                                <li>Redesigned application infrastructure, reducing cloud costs by 35%</li>
+                                <li>Implemented CI/CD pipelines, improving deployment time by 75%</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="experience-title">
+                            <span class="experience-company">Global Software Inc.</span>
+                            <span class="experience-period">2019 - 2022</span>
+                        </div>
+                        <div class="experience-role">Software Developer</div>
+                        <div class="experience-description">
+                            <ul>
+                                <li>Developed frontend components using React and TypeScript</li>
+                                <li>Built RESTful APIs with Node.js and Express</li>
+                                <li>Collaborated with UX designers to implement responsive interfaces</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h3 class="section-title">Education</h3>
+                    <div class="education-item">
+                        <div class="experience-title">
+                            <span class="experience-company">University of Technology</span>
+                            <span class="experience-period">2015 - 2019</span>
+                        </div>
+                        <div>BSc in Computer Science</div>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h3 class="section-title">Contact</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <span>austine.iheji@example.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <span>San Francisco, CA</span>
+                        </div>
+                    </div>
+                    <a href="#" class="cta-button">Download Resume</a>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        &copy; 2025 Software Engineering Lab. All rights reserved.
+    </footer>
+</body>
+</html>
