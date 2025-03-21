@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Engineering Lab</title>
+    <style>
+        :root {
+            --oxblood: #76000C;
+            --oxblood-light: #9E0010;
+            --cream: #F8F0E3;
+            --gold: #D4AF37;
+            --charcoal: #36454F;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--cream);
+            color: var(--charcoal);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background-color: var(--oxblood);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 10;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .tagline {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--gold);
+        }
+        
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3rem 1rem;
+            position: relative;
+        }
+        
+        .decorative-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(var(--gold) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.2;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .team-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            width: 100%;
+            z-index: 1;
+            margin-top: 2rem;
+        }
+        
+        .team-button {
+            background-color: var(--oxblood);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            padding: 2.5rem 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-button:hover {
+            background-color: var(--oxblood-light);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .team-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transition: all 0.6s ease;
+        }
+        
+        .team-button:hover::before {
+            left: 100%;
+        }
+        
+        .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .welcome-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-width: 900px;
+            width: 100%;
+            z-index: 1;
+            border-left: 5px solid var(--oxblood);
+        }
+        
+        h2 {
+            color: var(--oxblood);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        footer {
+            background-color: var(--charcoal);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .team-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Software Engineering Lab</h1>
+        <p class="tagline">Innovating the future, one line of code at a time</p>
+    </header>
+    
+    <main class="main-content">
+        <div class="decorative-pattern"></div>
+        
+        <section class="welcome-section">
+            <h2>Welcome to our Lab</h2>
+            <p>Our team of talented engineers is dedicated to creating innovative solutions. Select a team member below to learn more about their projects and contributions.</p>
+        </section>
+        
+        <div class="team-buttons">
+            <a href="austine.html" class="team-button">
+                <div class="icon">👨‍💻</div>
+                <span>Austine</span>
+            </a>
+            
+            <a href="samuel.html" class="team-button">
+                <div class="icon">🔧</div>
+                <span>Samuel</span>
+            </a>
+            
+            <a href="maame.html" class="team-button">
+                <div class="icon">💡</div>
+                <span>Maame</span>
+            </a>
+            
+            <a href="mcnobert.html" class="team-button">
+                <div class="icon">🚀</div>
+                <span>McNobert</span>
+            </a>
+        </div>
+    </main>
+    
+    <footer>
+        &copy; 2025 Software Engineering Lab. All rights reserved.
+    </footer>
+</body>
+</html>
