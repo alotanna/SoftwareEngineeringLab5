@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ama Annor - Profile</title>
+    <style>
+        :root {
+            --oxblood: #76000C;
+            --oxblood-light: #9E0010;
+            --cream: #F8F0E3;
+            --gold: #D4AF37;
+            --charcoal: #36454F;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--cream);
+            color: var(--charcoal);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header {
+            background-color: var(--oxblood);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+        
+        .subtitle {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--gold);
+        }
+        
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+            position: relative;
+        }
+        
+        .profile-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-width: 800px;
+            width: 100%;
+            border-left: 5px solid var(--oxblood);
+        }
+        
+        h2 {
+            color: var(--oxblood);
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+        }
+        
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .profile-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        h3 {
+            color: var(--oxblood-light);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 0.3rem;
+            display: inline-block;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin-left: 0.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+        
+        li:before {
+            content: "•";
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+        }
+        
+        .back-button {
+            background-color: var(--oxblood);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            text-decoration: none;
+            text-align: center;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+        
+        .back-button:hover {
+            background-color: var(--oxblood-light);
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            background-color: var(--charcoal);
+            color: white;
+            text-align: center;
+            padding: 1.2rem;
+            margin-top: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ama Ansongmaa Aseda Annor</h1>
+        <p class="subtitle">Computer Science Student</p>
+    </header>
+    
+    <main class="main-content">
+        <div class="profile-container">
+            <h2>About Me</h2>
+            <p>I'm a Computer Science student at Ashesi University with a passion for software development and community engagement. I enjoy working on innovative projects and contributing to team success through creative problem-solving and effective communication.</p>
+            
+            <div class="profile-grid">
+                <div class="profile-section">
+                    <h3>Projects</h3>
+                    <ul>
+                        <li>Ride Care - Web platform for ride-hailing safety using HTML, CSS, JavaScript and MySQL</li>
+                        <li>AI Interview Insight Generator - Transcription and insights from interview recordings</li>
+                    </ul>
+                </div>
+                
+                <div class="profile-section">
+                    <h3>Skills</h3>
+                    <ul>
+                        <li>Programming: Python, Java, HTML, CSS, SQL</li>
+                        <li>Project Management</li>
+                        <li>Team Collaboration</li>
+                        <li>Social Media Strategy</li>
+                    </ul>
+                </div>
+                
+                <div class="profile-section">
+                    <h3>Experience</h3>
+                    <ul>
+                        <li>Peer Tutor - Discrete Structures and Linear Algebra</li>
+                        <li>Executive Assistant to the Student Council President</li>
+                        <li>Co-Founder of AMS Outreach charity organization</li>
+                    </ul>
+                </div>
+                
+                <div class="profile-section">
+                    <h3>Interests</h3>
+                    <ul>
+                        <li>Football - Elite FC and School Team</li>
+                        <li>Basketball - School Team</li>
+                        <li>Reading novels</li>
+                        <li>Design and creative projects</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <a href="index.html" class="back-button">Back to Team</a>
+        </div>
+    </main>
+    
+    <footer>
+        &copy; 2025 Software Engineering Lab. All rights reserved.
+    </footer>
+</body>
+</html>
