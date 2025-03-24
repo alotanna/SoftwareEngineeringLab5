@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>McNobert Amoah - Cybersecurity & Web Development</title>
+  <style>
+    :root {
+      --oxblood: #76000C;
+      --oxblood-light: #9E0010;
+      --cream: #F8F0E3;
+      --gold: #D4AF37;
+      --charcoal: #36454F;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    body {
+      background-color: var(--cream);
+      color: var(--charcoal);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--oxblood), var(--oxblood-light));
+      color: white;
+      padding: 4rem 1.5rem 6rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: var(--cream);
+      transform: skewY(-3deg);
+      z-index: 1;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 2rem 1rem;
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: -4rem auto 0;
+    }
+
+    .profile-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .profile-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid var(--gold);
+      margin-bottom: 1.5rem;
+      object-fit: cover;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .section {
+      margin: 3rem 0;
+      padding: 2rem;
+      background: var(--cream);
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .section-title {
+      color: var(--oxblood);
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .section-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 80%;
+      background: var(--gold);
+      border-radius: 4px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-category {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .skill-tag {
+      background: var(--oxblood-light);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      transition: transform 0.2s ease;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+      margin-left: 1rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 3px;
+      background: var(--gold);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding-left: 2rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -14px;
+      top: 5px;
+      width: 16px;
+      height: 16px;
+      background: var(--oxblood);
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+    }
+
+    footer {
+      background: var(--charcoal);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: auto;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--oxblood);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>McNobert Amoah</h1>
+  <p class="tagline">Securing Digital Futures | Building Intelligent Web Solutions</p>
+</header>
+
+<main class="main-content">
+  <div class="profile-card">
+    <div class="profile-header">
+      <img src="https://via.placeholder.com/160" alt="McNobert Amoah" class="avatar">
+      <h2>Computer Scientist & Cybersecurity Enthusiast</h2>
+      <p>Bridging security with innovation in web development and AI integration</p>
+    </div>
+
+    <section class="section">
+      <h3 class="section-title">About Me</h3>
+      <p>A passionate Computer Science student at Ashesi University specializing in cybersecurity and AI integration. Committed to creating secure digital environments while developing user-centric web applications. Proven leader with experience in managing teams and empowering communities through technology education.</p>
+    </section>
+
+    <section class="section">
+      <h3 class="section-title">Technical Arsenal</h3>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h4>🛡️ Cybersecurity</h4>
+          <div class="skill-items">
+            <span class="skill-tag">Network Security</span>
+            <span class="skill-tag">Ethical Hacking</span>
+            <span class="skill-tag">Threat Analysis</span>
+            <span class="skill-tag">Secure Auth</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h4>💻 Development</h4>
+          <div class="skill-items">
+            <span class="skill-tag">Python/Django</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">PHP</span>
+            <span class="skill-tag">HTML/CSS</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h4>🤖 AI Integration</h4>
+          <div class="skill-items">
+            <span class="skill-tag">NLP Models</span>
+            <span class="skill-tag">Chatbot Development</span>
+            <span class="skill-tag">ML Integration</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3 class="section-title">Impact Projects</h3>
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="project-content">
+            <h4>SamaCare Health Platform</h4>
+            <p>AI-driven health assessment system with medical record management</p>
+            <div class="skill-items">
+              <span class="skill-tag">Django</span>
+              <span class="skill-tag">Flask</span>
+              <span class="skill-tag">NLP</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-content">
+            <h4>Tech Literacy Initiative</h4>
+            <p>Community program teaching digital skills to children</p>
+            <div class="skill-items">
+              <span class="skill-tag">Leadership</span>
+              <span class="skill-tag">Education</span>
+              <span class="skill-tag">Community</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3 class="section-title">Leadership Journey</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>Bank of America Cybersecurity Analyst Applicant</h4>
+          <p class="experience-period">2025</p>
+          <ul>
+            <li>Global technology security program candidate</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <h4>Residential Assistant & Sports Chair</h4>
+          <p class="experience-period">2023-Present</p>
+          <ul>
+            <li>Student leadership at Ashesi University</li>
+            <li>Organized inter-college sports events</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3 class="section-title">Get in Touch</h3>
+      <a href="#" class="cta-button">
+        📧 Contact Me
+        <span>→</span>
+      </a>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <p>© 2024 McNobert Amoah. Championing Secure Digital Innovation</p>
+</footer>
+</body>
+</html>
